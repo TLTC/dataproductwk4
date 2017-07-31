@@ -1,0 +1,34 @@
+---
+title: "Shiny Pitch"
+author: "TLTC"
+date: "July 31, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This simple app is created to allow users to predict the eruption time in the Yellowstone Old Faithful geyser dataset. 
+
+## App Structure
+
+- Input: one numeric input from the user to specify how many second of waiting time to put in the model
+- Output: one numeric output from the linear model fitted by the app
+- Documentation: brief instruction tab
+
+## Code
+
+Here's what's behind the secene being calculated by the server. For example, if the user input 80 seconds, the app should produce:
+
+```{r, echo=TRUE, message=FALSE}
+data(faithful)
+model <- lm(eruptions ~ waiting, data=faithful)
+predict(model, newdata = data.frame(waiting = 80))
+```
+
+## Thanks!
+
+Please visit the app by clicking [here](https://tltc.shinyapps.io/dataproductwk4/)
